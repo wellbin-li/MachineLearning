@@ -93,6 +93,7 @@ if __name__ == '__main__':
     test = [101, 20]
     # kNN分类
     # test_class = classify0(test, group, labels, 3)
+
     # kNN分类(简化)
     test_class = classify1(test, group, labels, 3)
     # 打印分类结果
