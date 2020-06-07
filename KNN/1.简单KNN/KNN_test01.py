@@ -3,19 +3,18 @@ import numpy as np
 import operator
 import collections
 
-"""
-函数说明:创建数据集
-Parameters:
-	无
-Returns:
-	group - 数据集
-	labels - 分类标签
-Modify:
-	2020-06-02
-"""
-
 
 def createDataSet():
+    """
+    函数说明:创建数据集
+    Parameters:
+    	无
+    Returns:
+    	group - 数据集
+    	labels - 分类标签
+    Modify:
+    	2020-06-02
+    """
     # 四组二维特征
     group = np.array([[1, 101], [5, 89], [108, 5], [115, 8]])
     # 四组特征的标签
@@ -23,21 +22,19 @@ def createDataSet():
     return group, labels
 
 
-"""
-函数说明:kNN算法,分类器
-Parameters:
-	inX - 用于分类的数据(测试集)
-	dataSet - 用于训练的数据(训练集)
-	labes - 分类标签
-	k - kNN算法参数,选择距离最小的k个点
-Returns:
-	sortedClassCount[0][0] - 分类结果
-Modify:
-	2020-06-02
-"""
-
-
 def classify0(inX, dataSet, labels, k):
+    """
+    函数说明:kNN算法,分类器
+    Parameters:
+    	inX - 用于分类的数据(测试集)
+    	dataSet - 用于训练的数据(训练集)
+    	labes - 分类标签
+    	k - kNN算法参数,选择距离最小的k个点
+    Returns:
+    	sortedClassCount[0][0] - 分类结果
+    Modify:
+    	2020-06-02
+    """
     # numpy函数shape[0]返回dataSet的行数
     dataSetSize = dataSet.shape[0]
     # 在列向量方向上重复inX共1次(横向)，行向量方向上重复inX共dataSetSize次(纵向)
@@ -67,21 +64,19 @@ def classify0(inX, dataSet, labels, k):
     return sortedClassCount[0][0]
 
 
-"""
-函数说明:kNN算法(简化代码),分类器
-Parameters:
-	inX - 用于分类的数据(测试集)
-	dataSet - 用于训练的数据(训练集)
-	labes - 分类标签
-	k - kNN算法参数,选择距离最小的k个点
-Returns:
-	sortedClassCount[0][0] - 分类结果
-Modify:
-	2020-06-05
-"""
-
-
 def classify1(inx, dataSet, labels, k):
+    """
+    函数说明:kNN算法(简化代码),分类器
+    Parameters:
+    	inX - 用于分类的数据(测试集)
+    	dataSet - 用于训练的数据(训练集)
+    	labes - 分类标签
+    	k - kNN算法参数,选择距离最小的k个点
+    Returns:
+    	sortedClassCount[0][0] - 分类结果
+    Modify:
+    	2020-06-05
+    """
     # 计算距离
     dist = np.sum((inx - dataSet) ** 2, axis=1) ** 0.5
     # k个最近的标签
